@@ -7,8 +7,7 @@ class Image
   
   def output_image
     self.array.each do |item|
-      item.each {|x| print x}
-      puts
+      puts item.join
     end
   end
 end
