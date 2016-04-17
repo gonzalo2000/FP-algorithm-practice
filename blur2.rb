@@ -1,13 +1,8 @@
-#This currently works for inner items and/or last elements
-
-#Throws error when there is a 1 on the last row
-
-#Bug for the first element of the row (turns the last element of 
-#the row into a 1 as well)
+#BUG: Throws error when there is a 1 on the last row
 
 a = [[0,0,0,0],
-     [0,0,1,0],
      [0,0,0,0],
+     [0,0,0,1],
      [0,0,0,0]
     ]
 
@@ -20,8 +15,8 @@ a.each_with_index do |m, n| # n == index of main array
         if x == 1
             new[n][y] = 1
             new[n][y+1] = 1 unless (a[n][y+1]).nil? #right
-            new[n][y-1] = 1 unless (a[n][y-1]).nil? #left
-            new[n-1][y] = 1 unless (a[n-1][y]).nil? #top
+            new[n][y-1] = 1 unless (a[n][y-1]).nil? || y == 0 #left
+            new[n-1][y] = 1 unless (a[n-1][y]).nil? || n == 0 #top
             new[n+1][y] = 1 unless (a[n+1][y]).nil? #bottom
         end
     end
@@ -31,3 +26,5 @@ end
 new.each do |element|
   element.map! {|x| x == nil ? x = 0 : x = 1 }
 end
+
+print new
