@@ -1,3 +1,10 @@
+#This currently works for inner items and/or last elements
+
+#Throws error when there is a 1 on the last row
+
+#Bug for the first element of the row (turns the last element of 
+#the row into a 1 as well)
+
 a = [[0,0,0,0],
      [0,0,1,0],
      [0,0,0,0],
