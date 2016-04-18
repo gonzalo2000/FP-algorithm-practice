@@ -14,8 +14,10 @@ a.each_with_index do |m, n| # n == index of main array
             new[n][y-1] = 1 unless (a[n][y-1]).nil? || y == 0 #left
             new[n-1][y] = 1 unless (a[n-1][y]).nil? || n == 0 #top
             unless n == (a.length - 1)
-              new[n+1][y] = 1 unless (a[n+1][y]).nil? || n == (a.size - 1)#bottom
+              new[n+1][y] = 1 unless (a[n+1][y]).nil? || n == (a.size - 1) #bottom
             end
         end
     end
 end
+
+new
