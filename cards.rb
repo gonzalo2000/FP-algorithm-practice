@@ -30,6 +30,7 @@ class Deck
     end
     
     def deal
-        @all_cards.shuffle.shift
+        shuffle.shift
+        #@all_cards.shuffle.shift
     end
 end
