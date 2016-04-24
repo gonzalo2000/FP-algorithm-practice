@@ -1,10 +1,15 @@
-a = [[0,0,0,0,0,0,0],
-     [0,0,0,0,0,0,0],
-     [0,0,0,0,0,0,0],
-     [0,0,0,1,0,0,0],
-     [0,0,0,0,0,0,0],
-     [0,0,0,0,0,0,0],
-     [0,0,0,0,0,0,0]]
+a = [[0,0,0,0,0,0,0,0,0],
+     [0,0,0,0,0,0,0,0,0],
+     [0,0,0,0,0,0,0,0,0],
+     [0,0,0,0,0,0,0,0,0],
+     [0,0,0,1,0,0,0,0,0],
+     [0,0,0,0,0,0,0,0,0],
+     [0,0,0,0,0,0,0,0,0],
+     [0,0,0,0,0,0,0,0,0],
+     [0,0,0,0,0,0,0,0,0],
+     [0,0,0,0,0,0,0,0,0],
+     [0,0,0,0,0,0,0,0,0],
+     [1,0,0,0,0,0,0,0,1]]
 
 cloned = a.map(&:clone)
 
@@ -21,7 +26,7 @@ a.each.with_index do |whole_row, row|
       counter = 0
       (n+1).times do 
         (repetition).times do
-          unless cloned[row_path][column_path].nil?
+          unless (row_path > cloned.length - 1 ) || cloned[row_path][column_path].nil? 
             cloned[row_path][column_path] = 1
           end
           row_path += 1
@@ -39,7 +44,7 @@ a.each.with_index do |whole_row, row|
       counter = 0
       (n+1).times do 
         (repetition).times do
-          unless cloned[row_path][column_path].nil?
+          unless (row_path > cloned.length - 1 ) || cloned[row_path][column_path].nil? 
             cloned[row_path][column_path] = 1
           end
           row_path += 1
