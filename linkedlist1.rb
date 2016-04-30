@@ -5,8 +5,6 @@ class LinkedListNode
     @value = value
     @next_node = next_node
   end
-
-  
 end
 
 def print_values(list_node)
@@ -23,28 +21,56 @@ class Stack
     attr_reader :data
     
     def initialize
-        @data = nil
+        @data = nil 
     end
 
-    # Push a value onto the stack
     def push(value)
-        # IMPLEMENT ME!
+      @data = LinkedListNode.new(value, @data) 
     end
+    #The first push will consist of a (value, nil) node; bu pointing
+    #to nil, it serves as the bottom of the stack. Hence the relevance of
+    #initializing Stack with @data as nil.
+    #Additional pushes will use the prior node as @next_node
+    #i.e. successive pushes point to the element immediately below in
+    #the stack,
 
-    # Pop an item off the stack.  
-    # Remove the last item that was pushed onto the
-    # stack and return the value to the user
     def pop
-        # I RETURN A VALUE
+      return nil if @data.nil?
+      popped_value = @data.value
+      @data = @data.next_node
+      popped_value
     end
-
+    #Popping first stores the @data.value in a variable, i.e. captures
+    #the value of the item at the top of the stack. @data is then switched
+    #for the next node (i.e. the item immediately below in the stack).
+    #Returns the value of the earlier node that was captured in the variable.
+    #The key is that we save the "top" value in the variable, so we can
+    #return it after "popping" and setting @data to a new value.
 end
 
+def reverse_list(list) 
+    stack = Stack.new
+
+    while list
+      stack.push(list.value)
+      list = list.next_node
+    end
+  
+  LinkedListNode.new(stack.pop, stack.data)
+end
 
 node1 = LinkedListNode.new(37)
 node2 = LinkedListNode.new(99, node1)
 node3 = LinkedListNode.new(12, node2)
- 
+
 print_values(node3)
 
 puts "-------"
+
+revlist = reverse_list(node3)
+print_values(revlist)
+
+# returns:
+# 12 --> 99 --> 37 --> nil
+# ------
+# 37 --> 99 --> 12 --> nil
