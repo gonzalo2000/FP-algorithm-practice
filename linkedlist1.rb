@@ -24,28 +24,28 @@ class Stack
         @data = nil 
     end
 
-    def push(value)
-      @data = LinkedListNode.new(value, @data) 
-    end
     #The first push will consist of a (value, nil) node; bu pointing
     #to nil, it serves as the bottom of the stack. Hence the relevance of
     #initializing Stack with @data as nil.
     #Additional pushes will use the prior node as @next_node
     #i.e. successive pushes point to the element immediately below in
-    #the stack,
-
-    def pop
-      return nil if @data.nil?
-      popped_value = @data.value
-      @data = @data.next_node
-      popped_value
+    #the stack.
+    def push(value)
+      @data = LinkedListNode.new(value, @data) 
     end
+    
     #Popping first stores the @data.value in a variable, i.e. captures
     #the value of the item at the top of the stack. @data is then switched
     #for the next node (i.e. the item immediately below in the stack).
     #Returns the value of the earlier node that was captured in the variable.
     #The key is that we save the "top" value in the variable, so we can
     #return it after "popping" and setting @data to a new value.
+    def pop
+      popped_value = @data.value
+      @data = @data.next_node
+      popped_value
+    end
+    
 end
 
 def reverse_list(list)
