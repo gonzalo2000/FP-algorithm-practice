@@ -48,14 +48,18 @@ class Stack
     #return it after "popping" and setting @data to a new value.
 end
 
-def reverse_list(list) 
-    stack = Stack.new
+def reverse_list(list)
+  #create a new Stack object 
+  stack = Stack.new 
 
-    while list
-      stack.push(list.value)
-      list = list.next_node
-    end
+  #push values into stack unless they're nil
+  while list
+    stack.push(list.value)
+    list = list.next_node
+  end
   
+  #change return the stack values by popping and setting the next node to 
+  #the previous value
   LinkedListNode.new(stack.pop, stack.data)
 end
 
