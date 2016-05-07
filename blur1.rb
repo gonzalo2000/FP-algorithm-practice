@@ -16,15 +16,15 @@ class Image
 
     #scan original array for 1; map crosses into clone if found
     self.array.each.with_index do |row, row_index|
-    row.each.with_index do |cell, col|
-      if cell == 1
-        cloned[row_index][col+1] = 1 unless col+1 >= row.length #copy right
-        cloned[row_index+1][col] = 1 unless row_index+1 >= cloned.length # copy down
-        cloned[row_index][col-1] = 1 unless col.zero? # copy left
-        cloned[row_index-1][col] = 1 unless row_index.zero? #copy up
+      row.each.with_index do |cell, col|
+        if cell == 1
+          cloned[row_index][col+1] = 1 unless col+1 >= row.length #copy right
+          cloned[row_index+1][col] = 1 unless row_index+1 >= cloned.length # copy down
+          cloned[row_index][col-1] = 1 unless col.zero? # copy left
+          cloned[row_index-1][col] = 1 unless row_index.zero? #copy up
+        end
       end
     end
-  end
     cloned
   end
 
