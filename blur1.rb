@@ -31,9 +31,9 @@ class Image
   def blur(n) #not working at present
     blurred = Image.new(self)
     n.times do
-    blurred = blurred.transform
-  end
-  blurred
+      blurred = blurred.transform
+    end
+    blurred
   end
     
 end
