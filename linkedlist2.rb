@@ -20,6 +20,7 @@ end
 
 def reverse_list(list, previous=nil)
   #change pointer to reverse head & tail
+  #placeholder for value, set value of next_node to be the next value in placeholder?
 end
 
 node1 = LinkedListNode.new(37)
