@@ -7,7 +7,7 @@ def card_is_valid?(number)
   doubled = split_number
   counter = -2
   while doubled[counter] do 
-    doubled[counter] = doubled[counter] * 2
+    doubled[counter] *= 2
     doubled[counter] -= 9 if doubled[counter] > 9
     counter -= 2
   end
